@@ -12,7 +12,7 @@ Ask, and it writes resume bullets from the work you actually did.
 Software Engineering Intern, Zillow (Seattle or remote)
 https://zillow.wd5.myworkdayjobs.com/...
 Why you fit: REST API from CSE 340 Project 3, SQL from CSE 310 Project 2
-Gap: Docker (not in any class yet)
+Missing proof: Docker (not in any class yet)
 ```
 
 ## Install

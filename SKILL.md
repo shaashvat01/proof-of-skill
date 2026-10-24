@@ -27,8 +27,12 @@ Run every command from this Skill's folder. The script needs only Python 3, no s
 ### 1. Build the skills profile (first time, then when a new semester starts)
 
 1. Run `python3 scripts/jobs.py profile show`. If it prints a profile from this semester, skip to step 2.
-2. Read the student's Canvas courses, this semester and past ones. For each course, read the syllabus or course
-   description and the assignments: titles, descriptions, and the student's own submissions when Canvas shows them.
+2. Read the student's Canvas courses, this semester and past ones. For **each** course, open its assignment list
+   and read the individual assignments and projects: titles, descriptions, rubrics, and the student's own
+   submissions when Canvas shows them. Also read the syllabus or course description. Course names and topics on
+   their own are weak evidence; the point of this Skill is naming the actual project. If a course shows no
+   assignments (common for past semesters), note it as "course only". If most courses are "course only", tell the
+   student and ask them to text two or three projects they did, then add those as evidence.
    If Canvas is not connected, ask the student to connect it. If they would rather not, ask them to text their
    classes and two or three projects they're proud of, and build the profile from that.
 3. Pull out concrete skills: languages, tools, methods, and things built or analyzed ("normalized a relational
@@ -54,14 +58,18 @@ Run every command from this Skill's folder. The script needs only Python 3, no s
 5. Text the student a short summary: their top five skills, each with the class behind it. Ask if anything is
    missing, such as a hackathon, club or job project. Add what they mention as evidence too.
 
-### 2. Learn what they want (first time only)
+### 2. Learn what they want (first time only, before the first search)
 
-Ask one question at a time, each with a default they can accept with "yes", then save the answers in `interests`:
+Ask only what the student hasn't already said, one question at a time, each with a default they can accept with
+"yes". Ask these before searching, because they decide which postings the student is eligible for. Save the
+answers in `interests`:
 
+- Degree level and graduation month and year
+- Whether they will need visa sponsorship (for example F-1, CPT or OPT). Ask plainly and without judgment; it is
+  optional, and "prefer not to say" is fine.
 - Roles or fields ("software, data, design, marketing, research...?")
 - Types: internship, full-time after graduation, on-campus job, research position
 - Locations, and whether remote is fine
-- Graduation date and degree level
 
 ### 3. Find postings
 
@@ -91,22 +99,31 @@ Shortlist up to eight postings from the titles.
 
 1. Read the requirements: `python3 scripts/jobs.py details <id> <id> ...` (up to 5 at a time, ids or links). If it
    says a posting is closed, drop it. If it says to open the posting in the browser, read it there.
-2. For each posting, compare every must-have requirement with the profile. Mark each requirement as covered
-   (name the course and assignment), partly covered, or a gap.
-3. Rank postings by how many must-haves are covered, then by deadline and posting date. Leave out postings where
+2. Check the eligibility rules first: degree level, graduation window, minimum GPA, work authorization,
+   citizenship or sponsorship, and where remote work is allowed. Drop a posting the student clearly doesn't
+   qualify for. If a rule depends on something you don't know (such as GPA), keep the posting and say so in one
+   line.
+3. Compare every must-have requirement with the profile. Mark each requirement as covered (name the course **and**
+   the assignment), partly covered (the course only, or one small exercise), or missing proof.
+4. Rank postings by how many must-haves are covered, then by deadline and posting date. Leave out postings where
    the student meets fewer than half of the must-haves, unless nothing better turned up. If so, say that the
    match is a stretch.
 
 ### 5. Text the top three
 
-For each posting, send one short message:
+Send at most three postings, **one message per posting**, in this shape:
 
 ```text
 Backend Intern, Example Payments (Phoenix or remote)
 https://example.com/jobs/123
 Why you fit: REST API from CSE 340 Project 3, SQL from CSE 310 Project 2
-Gap: Docker (not in any class yet)
+Missing proof: Docker (not in any class yet)
+Heads up: needs a 3.0 GPA
 ```
+
+Every posting includes its link, on its own line; if you don't have a live link, leave the posting out. Use the
+"Heads up" line only for an eligibility rule the student should check. Before the postings, send one line saying
+what you searched for; after them, one line with your pick.
 
 Then ask "Want resume bullets for any of these?" When the student has seen the postings, run
 `python3 scripts/jobs.py shown <id> <id> ...` so later searches skip them. If the student wants more than three,

@@ -20,7 +20,7 @@ Gap: Docker (not in any class yet)
 Text this link to Cubbie:
 
 ```text
-https://github.com/<owner>/proof-of-skill
+https://github.com/shaashvat01/proof-of-skill
 ```
 
 Cubbie asks before it fetches the Skill; reply "yes". Then try: "What internships could I get with my classes?"

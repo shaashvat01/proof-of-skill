@@ -42,6 +42,11 @@ SECTION = re.compile(SECTION_WORDS, re.I)
 TERM = re.compile(r"(spring|summer|fall|winter)\s+(20\d\d)", re.I)
 TERM_ENDS = {"spring": 5, "summer": 8, "fall": 12, "winter": 15}  # month the term ends; winter runs into next year
 DETAIL_CHARS = 1200
+ELIGIBILITY = re.compile(
+    r"sponsor|authori[sz]ed to work|work authori[sz]ation|citizen|permanent resident|green card|\bvisa\b|"
+    r"\bF-1\b|\bCPT\b|\bOPT\b|clearance|\bGPA\b|graduat(e|ing|ion) (date|between|by|in)|return(ing)? to school",
+    re.I,
+)
 
 
 def fail(message: str, code: int):
@@ -245,6 +250,17 @@ def requirements(text: str) -> str:
     return chunk + (" ..." if len(text) > start + DETAIL_CHARS else "")
 
 
+def eligibility(text: str) -> str:
+    """Sentences about work authorization, sponsorship, GPA or graduation dates, wherever they appear."""
+    text = text.replace("\u2019", "'")
+    found = []
+    for sentence in re.split(r"(?<=[.!?])\s+|\n", text):
+        sentence = sentence.strip(" -•*")
+        if ELIGIBILITY.search(sentence) and 10 < len(sentence) < 400 and sentence not in found:
+            found.append(sentence)
+    return "\n".join(f"- {f}" for f in found[:5])
+
+
 def resolve(ref: str, sample: bool):
     if ref.startswith("https://"):
         return ref, None
@@ -295,7 +311,9 @@ def cmd_details(args) -> int:
             continue
         if not row and title:
             label += f" {title}"
-        print(f"{label}\n  {url}\n{requirements(text)}\n")
+        rules = eligibility(text)
+        rules = f"Eligibility mentions:\n{rules}" if rules else "Eligibility mentions: none found in the description."
+        print(f"{label}\n  {url}\n{requirements(text)}\n{rules}\n")
     return worst
 
 

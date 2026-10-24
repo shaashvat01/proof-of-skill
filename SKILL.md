@@ -93,16 +93,25 @@ Use whichever sources fit the student's interests. Combine them if several fit.
   research programs, lab openings on department pages, and REU programs. Use only postings with a live link and
   a visible deadline or posting date.
 
+Match the search to the student's dates: if they graduate before or during the internship term they asked
+about, search new-grad roles instead (`--type new-grad`), plus internships open to graduating students, and say
+why in one line. Always run a fresh search for each request. Never reuse postings from earlier in the
+conversation without checking them again; they may have closed.
+
 Shortlist up to eight postings from the titles.
 
 ### 4. Check the fit
 
 1. Read the requirements: `python3 scripts/jobs.py details <id> <id> ...` (up to 5 at a time, ids or links). If it
    says a posting is closed, drop it. If it says to open the posting in the browser, read it there.
-2. Check the eligibility rules first: degree level, graduation window, minimum GPA, work authorization,
+2. Check the eligibility rules first, starting with the "Eligibility mentions" lines that `details` prints: degree level, graduation window, minimum GPA, work authorization,
    citizenship or sponsorship, and where remote work is allowed. Drop a posting the student clearly doesn't
    qualify for. If a rule depends on something you don't know (such as GPA), keep the posting and say so in one
-   line.
+   line. For visa questions (CPT, OPT, sponsorship), say what the posting states and suggest confirming with the
+   school's international student office; don't give legal advice.
+   If the rules drop most of the shortlist, search again right away: try new-grad roles, more locations, and
+   `--days 30`, and run `details` on the new results. Don't stop with "nothing fits" until a second search has
+   also come up empty.
 3. Compare every must-have requirement with the profile. Mark each requirement as covered (name the course **and**
    the assignment), partly covered (the course only, or one small exercise), or missing proof.
 4. Rank postings by how many must-haves are covered, then by deadline and posting date. Leave out postings where

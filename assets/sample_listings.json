@@ -1,0 +1,98 @@
+[
+ {
+  "id": "sample01-0000",
+  "kind": "internship",
+  "title": "Software Engineering Intern",
+  "company_name": "Example Payments",
+  "category": "Software",
+  "locations": [
+   "Phoenix, AZ",
+   "Remote in USA"
+  ],
+  "terms": [
+   "Summer 2027"
+  ],
+  "degrees": [
+   "Bachelor's"
+  ],
+  "date_posted": 1792800000,
+  "active": true,
+  "is_visible": true,
+  "url": "https://example.com/jobs/sample01-0000"
+ },
+ {
+  "id": "sample02-0000",
+  "kind": "internship",
+  "title": "Data Analyst Intern",
+  "company_name": "Sample Health",
+  "category": "AI/ML/Data",
+  "locations": [
+   "Tempe, AZ"
+  ],
+  "terms": [
+   "Summer 2027"
+  ],
+  "degrees": [
+   "Bachelor's",
+   "Master's"
+  ],
+  "date_posted": 1792713600,
+  "active": true,
+  "is_visible": true,
+  "url": "https://example.com/jobs/sample02-0000"
+ },
+ {
+  "id": "sample03-0000",
+  "kind": "internship",
+  "title": "Machine Learning Research Intern",
+  "company_name": "Demo Labs",
+  "category": "AI/ML/Data",
+  "locations": [
+   "San Francisco, CA"
+  ],
+  "terms": [
+   "Summer 2027"
+  ],
+  "degrees": [
+   "PhD"
+  ],
+  "date_posted": 1792627200,
+  "active": true,
+  "is_visible": true,
+  "url": "https://example.com/jobs/sample03-0000"
+ },
+ {
+  "id": "sample04-0000",
+  "kind": "new-grad",
+  "title": "Associate Software Engineer",
+  "company_name": "Placeholder Cloud",
+  "category": "Software",
+  "locations": [
+   "Remote in USA"
+  ],
+  "terms": [],
+  "degrees": [
+   "Bachelor's"
+  ],
+  "date_posted": 1792540800,
+  "active": true,
+  "is_visible": true,
+  "url": "https://example.com/jobs/sample04-0000"
+ },
+ {
+  "id": "sample05-0000",
+  "kind": "new-grad",
+  "title": "Business Intelligence Analyst",
+  "company_name": "Test Retail Co",
+  "category": "AI/ML/Data",
+  "locations": [
+   "Chandler, AZ"
+  ],
+  "terms": [],
+  "degrees": [],
+  "date_posted": 1792454400,
+  "active": true,
+  "is_visible": true,
+  "url": "https://example.com/jobs/sample05-0000"
+ }
+]
